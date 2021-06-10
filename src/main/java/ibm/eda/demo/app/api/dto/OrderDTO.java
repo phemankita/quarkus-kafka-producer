@@ -1,7 +1,5 @@
 package ibm.eda.demo.app.api.dto;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
-
 import ibm.eda.demo.app.domain.Address;
 import ibm.eda.demo.app.domain.OrderEntity;
 

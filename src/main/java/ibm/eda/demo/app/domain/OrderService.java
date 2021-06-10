@@ -1,14 +1,13 @@
 package ibm.eda.demo.app.domain;
 
+import javax.enterprise.context.ApplicationScoped;
+
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import ibm.eda.demo.app.infrastructure.AvroEmitter;
-import ibm.eda.demo.app.infrastructure.OrderEventAvroProducer;
 import ibm.eda.demo.app.infrastructure.OrderRepositoryMem;
 import ibm.eda.demo.app.infrastructure.events.Address;
 import ibm.eda.demo.app.infrastructure.events.EventEmitter;
@@ -16,7 +15,7 @@ import ibm.eda.demo.app.infrastructure.events.EventType;
 import ibm.eda.demo.app.infrastructure.events.OrderCreatedEvent;
 import ibm.eda.demo.app.infrastructure.events.OrderEvent;
 
-// @ApplicationScoped
+//@ApplicationScoped
 @AvroEmitter
 public class OrderService {
 	private static final Logger logger = Logger.getLogger(OrderService.class.getName());

@@ -3,7 +3,7 @@ package ibm.eda.demo.app.api;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -19,7 +19,7 @@ import ibm.eda.demo.app.domain.OrderService;
 @Path("/orders")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@ApplicationScoped
+@RequestScoped
 public class OrderResource {
 
     @Inject
