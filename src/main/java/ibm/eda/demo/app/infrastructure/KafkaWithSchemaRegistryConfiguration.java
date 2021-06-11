@@ -40,7 +40,7 @@ public class KafkaWithSchemaRegistryConfiguration  extends KafkaConfiguration {
         vs = ConfigProvider.getConfig().getOptionalValue("kafka.schema.registry.url", String.class);
         if (vs.isPresent()) {
             // Apicurio settings
-            properties.putIfAbsent(AbstractKafkaSerDe.REGISTRY_URL_CONFIG_PARAM, vs.get());
+            properties.putIfAbsent(AbstractKafkaSerDe.REGISTRY_URL_CONFIG_PARAM, "http://localhost:8090");
             REGISTRY_URL=vs.get();
             if (! truststoreLocation.isEmpty()) {
                 properties.put("value.converter.schema.registry.ssl.trutstore", truststoreLocation);
