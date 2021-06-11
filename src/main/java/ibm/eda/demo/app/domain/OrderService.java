@@ -1,6 +1,6 @@
 package ibm.eda.demo.app.domain;
 
-import javax.enterprise.context.ApplicationScoped;
+//import javax.enterprise.context.ApplicationScoped;
 
 import java.util.List;
 import java.util.logging.Logger;
