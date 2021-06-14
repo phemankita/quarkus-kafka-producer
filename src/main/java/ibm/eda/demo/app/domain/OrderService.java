@@ -28,10 +28,10 @@ public class OrderService {
 	public EventEmitter eventProducer;
 
 
-	public OrderService(EventEmitter eventProducer, OrderRepositoryMem  repo) {
-		this.eventProducer = eventProducer;
-		this.repository = repo;
-	}
+//	public OrderService(EventEmitter eventProducer, OrderRepositoryMem  repo) {
+//		this.eventProducer = eventProducer;
+//		this.repository = repo;
+//	}
 
 	public void createOrder(OrderEntity order) {
 		// TODO This has to be transactional or use outbox, or use command pattern to kafka topic
