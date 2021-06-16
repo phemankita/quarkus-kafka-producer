@@ -118,7 +118,6 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
   }
 
   // Used by DatumReader.  Applications should not call.
-  @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: street = value$ != null ? value$.toString() : null; break;
@@ -554,7 +553,6 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public Address build() {
       try {
         Address record = new Address();

@@ -123,7 +123,6 @@ public class OrderCreatedEvent extends org.apache.avro.specific.SpecificRecordBa
   }
 
   // Used by DatumReader.  Applications should not call.
-  @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: orderID = value$ != null ? value$.toString() : null; break;
@@ -675,7 +674,6 @@ public class OrderCreatedEvent extends org.apache.avro.specific.SpecificRecordBa
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public OrderCreatedEvent build() {
       try {
         OrderCreatedEvent record = new OrderCreatedEvent();
