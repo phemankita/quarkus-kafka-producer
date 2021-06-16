@@ -17,8 +17,14 @@ import io.apicurio.registry.utils.serde.strategy.RecordIdStrategy;
  */
 public class KafkaWithSchemaRegistryConfiguration  extends KafkaConfiguration {
    
-    public Optional<String> REGISTRY_URL=ConfigProvider.getConfig().getOptionalValue("kafka.schema.registry.url", String.class);
-
+    public Optional<String> reg_url=ConfigProvider.getConfig().getOptionalValue("kafka.schema.registry.url", String.class);
+    
+    String REGISTRY_URL = reg_url.stream()
+            .filter(x -> x.length() == 1)
+            .findFirst()  // returns Optional
+            .map(Object::toString)
+            .orElse("");
+    
     public  Properties getAvroProducerProperties(String clientID) {
         Properties properties = getProducerProperties(clientID);
         
@@ -41,7 +47,7 @@ public class KafkaWithSchemaRegistryConfiguration  extends KafkaConfiguration {
         if (vs.isPresent()) {
             // Apicurio settings
             properties.putIfAbsent(AbstractKafkaSerDe.REGISTRY_URL_CONFIG_PARAM, vs.get());
-            REGISTRY_URL=Optional.of(vs.get());
+            REGISTRY_URL=vs.get();
             if (! truststoreLocation.isEmpty()) {
                 properties.put("value.converter.schema.registry.ssl.trutstore", truststoreLocation);
                 properties.put("value.converter.schema.registry.ssl.trutstore.password",truststorePassword);
