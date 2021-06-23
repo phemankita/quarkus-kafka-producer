@@ -22,6 +22,7 @@ import io.apicurio.registry.client.RegistryRestClientFactory;
 @Singleton
 @AvroEmitter
 public class OrderEventAvroProducer implements EventEmitter {
+	
     Logger logger = Logger.getLogger(OrderEventProducer.class.getName());
 
     private KafkaProducer<String,OrderEvent> kafkaProducer = null;
@@ -42,7 +43,6 @@ public class OrderEventAvroProducer implements EventEmitter {
         Properties props = configuration.getAvroProducerProperties("OrderProducer_1");
         kafkaProducer = new KafkaProducer<String, OrderEvent>(props);
         try {
-//            Map<String,Object> config = (Map)props; 
             Map<String,Object> config = props.entrySet().stream().collect(Collectors.toMap(
 		            e -> String.valueOf(e.getKey()),
 		            e -> String.valueOf(e.getValue())));
@@ -61,7 +61,6 @@ public class OrderEventAvroProducer implements EventEmitter {
     }
 
     public void emit(OrderEvent oevent) { 
-//        GenericRecord record = new GenericData.Record(avroSchema);
         ProducerRecord<String, OrderEvent> producerRecord = new ProducerRecord<String, OrderEvent>(
                 configuration.getTopicName(), oevent.getOrderID(), oevent);
        
@@ -86,11 +85,7 @@ public class OrderEventAvroProducer implements EventEmitter {
         } finally {
 //            safeClose();
         }
-//         logger.info("Partition:" + resp.partition());
         
-//        kafkaProducer.send(producerRecord);
-//        
-//        kafkaProducer.close();
     }
 
     
