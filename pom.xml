@@ -113,9 +113,9 @@
         </exclusion>
       </exclusions>
    </dependency>
-  
 
-    <!-- 
+
+    <!--
        <dependency>
       <groupId>io.confluent</groupId>
       <artifactId>kafka-avro-serializer</artifactId>
@@ -188,11 +188,11 @@
               <goal>register</goal>
             </goals>
             <configuration>
-              <registryUrl>http://localhost:8090/api</registryUrl>
+              <registryUrl>${env.REGISTRY_URL}</registryUrl>
               <artifactType>AVRO</artifactType>
               <artifacts>
                 <!-- the name of the tag will be the id of the schema
-                
+
                 -->
                 <order-schema1>src/main/avro/Address.avsc</order-schema1>
                 <order-schema2>src/main/avro/OrderCreatedEvent.avsc</order-schema2>
