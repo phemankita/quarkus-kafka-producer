@@ -63,17 +63,17 @@ spec:
               value: {{ .Values.logLevel | quote }}
             - name: KAFKA_HOST
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: ibm-java-env
                   key: KAFKA_HOST
             - name: KAFKA_PORT
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: ibm-java-env
                   key: KAFKA_PORT
             - name: REGISTRY_URL
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: ibm-java-env
                   key: REGISTRY_URL
           envFrom:
