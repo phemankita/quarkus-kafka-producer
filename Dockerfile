@@ -1,5 +1,8 @@
 FROM adoptopenjdk/maven-openjdk11:nightly as BUILD
 
+ARG REGISTRY_URL                                                                                                 
+ENV REGISTRY_URL=${REGISTRY_URL}
+
 COPY src /usr/src/app/src
 COPY ./pom.xml /usr/src/app
 WORKDIR /usr/src/app
