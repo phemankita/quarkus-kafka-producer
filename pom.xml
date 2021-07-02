@@ -188,7 +188,7 @@
               <goal>register</goal>
             </goals>
             <configuration>
-              <registryUrl>${env.REGISTRY_URL}</registryUrl>
+              <registryUrl default-value="http://localhost:8090/api">${env.REGISTRY_URL}</registryUrl>
               <artifactType>AVRO</artifactType>
               <artifacts>
                 <!-- the name of the tag will be the id of the schema
